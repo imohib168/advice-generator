@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;800&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
+body {
+  background-color: var(--dark-blue);
+}
+
+.container {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.advice-card {
+  background-color: var(--dark-grayish-blue);
+  padding: 2.4em 1em;
+  border-radius: 8px;
+  color: var(--light-cyan);
+  max-width: 350px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.advice-id {
+  text-transform: uppercase;
+  color: var(--neon-green);
+  margin-bottom: 2em;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+}
+
+.advice {
+  text-align: center;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 1.2em;
+  padding: 0 1em;
+}
+
+.mobile-divider {
+  margin-bottom: 1.6em;
+}
+
+.desktop-divider {
+  display: none;
+}
+
+.advice-btn {
+  background-color: var(--neon-green);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.advice-btn:hover {
+  box-shadow: 0px 0px 18px 0px var(--neon-green);
+}
+
+.loading {
+  animation: loading 1s infinite;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 400px) {
+  .mobile-divider {
+    display: none;
+  }
+
+  .advice {
+    padding: 0 0.5em;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .desktop-divider {
+    display: block;
+    margin-bottom: 1.6em;
+  }
+
+  .mobile-divider {
+    display: none;
+  }
+
+  .advice-card {
+    max-width: 500px;
+    padding: 2.4em 2em;
+  }
+
+  .advice {
+    padding: 0.5em 1.2em;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
